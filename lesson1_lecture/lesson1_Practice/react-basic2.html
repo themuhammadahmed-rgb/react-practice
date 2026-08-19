@@ -13,12 +13,15 @@
         let socks = 10
         let tShirt1 = 8
         let tShirt2 = 8
+        let shippingCost = 5
         const productCost = socks + tShirt1 + tShirt2
         console.log(productCost)
         const div = (
            <div>
             <p>Cotton Socks</p>
             <p>Price: ${productCost}</p>
+            <p>Shipping Cost: ${shippingCost}</p>
+            <p>Total Cost: ${shippingCost + productCost}</p>
             <button>Add to Cart</button>
             </div>
         )
