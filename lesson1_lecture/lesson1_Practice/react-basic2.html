@@ -10,10 +10,15 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
     <script type="text/babel">
+        let socks = 10
+        let tShirt1 = 8
+        let tShirt2 = 8
+        const productCost = socks + tShirt1 + tShirt2
+        console.log(productCost)
         const div = (
            <div>
             <p>Cotton Socks</p>
-            <p>Price: $10</p>
+            <p>Price: ${productCost}</p>
             <button>Add to Cart</button>
             </div>
         )
