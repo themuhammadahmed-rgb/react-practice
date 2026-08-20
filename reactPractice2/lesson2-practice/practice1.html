@@ -10,12 +10,27 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
     <script type="text/babel">
+
+        function LoginForm(){
+        return (
+            <>
+            <div>
+                <input placeholder="email" />
+            </div>
+            <div>
+                <input placeholder="password" type="password" />
+            </div>
+                <button>Login</button>
+                <button>Sign Up</button>
+            </>
+)
+        }
+
       function App() {
         return (
           <>
             <p>Hello, welcome to my website</p>
-            <button>Login</button>
-            <button>Sign Up</button>
+            <LoginForm />
           </>
         );
       }
