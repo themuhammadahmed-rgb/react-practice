@@ -31,24 +31,21 @@
       )
     }
 
-    function StatusBadge({isOnline}) {
+    function StatusBadge({ isOnline }) {
       return (
         <>
-  If(isOnline){
-    <p>🟢 Online</p>
-  } else {
-    <p>🔴 Offline</p>
-  }
-  </>
-)
+          {isOnline === true && <p>🟢 Online</p>}
+          {isOnline === false && <p>🔴 Offline</p>}
+        </>
+      );
     }
     const div = (
       <>
         <Greeting name="Ahmed" />
         <UserCard username="Ahmed" age={20} />
         <Product name="Laptop" price={999} />
-        <StatusBadge isOnline=  {true}/>
-        <StatusBadge isOnline=  {false}/>
+        <StatusBadge isOnline={true} />
+        <StatusBadge isOnline={false} />
       </>
     )
     const container = document.querySelector('.js-container');
