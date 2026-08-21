@@ -12,13 +12,22 @@
     <script type="text/babel">
 
         function Greeting(props){
-return (
-  <h1>Helllo, {props.name}!</h1>
-)
+        return (
+          <h1>Helllo, {props.name}!</h1>
+        )
+      }
+      function UserCard(props){
+        const {username,age} = props;
+        return (
+      <p>Username {username} is {age} years old.</p>
+        )
       }
 
      const div = (
+      <>
         <Greeting name="Ahmed"/>
+        <UserCard username = "Ahmed" age={20}/>
+        </>
     )
       const container = document.querySelector('.js-container');
       ReactDOM.createRoot(container).render(div);
