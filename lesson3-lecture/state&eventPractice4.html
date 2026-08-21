@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Basics</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+        function SearchBox() {
+            const [query, setQuery] = React.useState("")
+
+            function HandleQueryChange(event) {
+                setQuery(event.target.value)
+            }
+            return (
+                <>
+                    <input value={query} onChange={HandleQueryChange} />
+                    <p>Searching for: {query}</p>
+                </>
+            )
+        }
+
+        function ColourList() {
+            const [colour, setColour] = React.useState(["Red", "Blue"])
+
+            function AddColour() {
+                const newColour = [...colour, "Green"]
+                setColour(newColour)
+            }
+            return (
+                <>
+                    {colour.map((item) => {
+                        return <p key={item}>{item}</p>
+                    })}
+                    <button onClick={AddColour}>Add Green</button>
+                </>
+            )
+        }
+        function BookList(){
+            const [book,setBook] = React.useState([
+                {title: 'Atomic Habits', id: 1},
+                {title: 'Deep Work', id: 2}
+            ])
+            function AddBook(){
+                const newBook = [...book,{title: 'New Book', id: 3}]
+                setBook(newBook)
+            }
+            return (
+                <>
+                {book.map((item)=>{
+                  return   <p key={item.id}>{item.title}</p>
+                })}
+                <button onClick={AddBook}>Add Book</button>
+                </>
+            )
+        }
+
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<BookList />);
+    </script>
+</body>
+
+</html>
