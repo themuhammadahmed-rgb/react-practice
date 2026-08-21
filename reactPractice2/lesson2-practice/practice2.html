@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>React Basics</title>
-</head>
-
-<body>
+  </head>
+  <body>
     <div class="js-container"></div>
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
     <script type="text/babel">
+      function ProductDetails({ name, price, discountPrice,imageSrc }) {
+        return (
+          <>
+            {discountPrice && (
+              <>
+              <img src={imageSrc} alt={name} />
+                <p>{name}</p>
+                <del><p>Price: ${price}</p></del>
+                <p>Discount Price: ${discountPrice}</p>
+                <button>Add to Cart</button>
+              </>
+            )}
 
-        function ProductDetails({ name, price }) {
-            return (
-                <>
-                    <p>{name}</p>
-                    <p>{price}</p>
-                    <button>Add to Cart</button>
-                </>
-            )
-        }
+            {!discountPrice && (
+              <>
+              < img src={imageSrc} alt={name} />
+                <p>{name}</p>
+                <p>Price: ${price}</p>
+                <button>Add to Cart</button>
+              </>
+            )}
+          </>
+        );
+      }s
 
-        function App() {
-            return (
-                <>
-                    <p>Socks</p>
-                    <p>Price: $10.90</p>
-                    <button>Add to Cart</button>
-                    <ProductDetails name="Tennis Ball" price={6.00} />
-                    <ProductDetails name="Plain T-Shirt" price={7.99} />
-                </>
-            )
-        }
-        const container = document.querySelector('.js-container');
-        ReactDOM.createRoot(container).render(<App />);
+      function App() {
+        return (
+          <>
+            <ProductDetails name="Cotton Socks" price={10.90} discountPrice={5.45} imageSrc="cotton-socks.png" />
+            <ProductDetails name="Tennis Ball" price={6.00} imageSrc="tennis-ball.png" />
+            <ProductDetails name="Plain T-Shirt" price={7.99} imageSrc="plain-t-shirt.png" />
+          </>
+        );
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
     </script>
-</body>
-
+  </body>
 </html>
