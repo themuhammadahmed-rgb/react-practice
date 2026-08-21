@@ -21,9 +21,9 @@
             return (
                 <>
                 {fruit.map((item)=>{
-                    <p key={item}>{item}</p>
+                    return  <p key={item}>{item}</p>
                 })}
-                <button onClick={setFruit}>AddMango</button>
+                <button onClick={AddFruit}>AddMango</button>
                 </>
             )
         }

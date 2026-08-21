@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Basics</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+        function TaskList() {
+            const [task, setTask] = React.useState([
+                { text: "Learn React", done: false, id: 1 },
+                { text: "Build a Project", done: false, id: 2 }
+            ])
+            function addtask() {
+                const New = [...task,
+                { text: "New Task", done: false, id: 3 }
+                ]
+                setTask(New)
+            }
+            return (
+                <>
+                {task.map((item)=>{
+                    return <p key={item.id}>item.text</p>
+                })}
+                <button onClick={addtask}>Add</button>
+                </>
+            )
+        }
+
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<TaskList/>);
+    </script>
+</body>
+
+</html>
