@@ -13,21 +13,36 @@
 
     <script type="text/babel">
 
-        function Counter(){
-            const [count,setCount] = React.useState(0)
-        }
-        function increment(){
-            setCount(count + 1)
-        }
-        function App(){
-            <>
-            <p>Count: {count}</p>
-            <button onclick = {increment}></button>
-            </>
+        function ScoreDisplay() {
+            const [score, setScore] = React.useState(0)
+
+            function increment() {
+                setScore(score + 10)
+            }
+
+            return (
+                <>
+                    <p>Score: {score}</p>
+                    <button onClick={increment}>Add</button>
+                </>
+            )
         }
 
+        function EmailInput() {
+            const [email, setEmail] = React.useState("")
+
+            function HandleEmailChange(event) {
+                setEmail(event.target.value)
+            }
+            return (
+                <>
+                <input value={email} onChange={HandleEmailChange}/>
+                <p>Email: {email}</p>
+                </>
+            )
+        }
         const container = document.querySelector('.js-container');
-        ReactDOM.createRoot(container).render(<App/>);
+        ReactDOM.createRoot(container).render(<EmailInput/>);
     </script>
 </body>
 
