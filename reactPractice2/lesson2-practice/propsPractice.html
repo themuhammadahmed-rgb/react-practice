@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>React Basics</title>
-  </head>
-  <body>
-    <div class="js-container"></div>`
-    <script src="https://unpkg.com/supersimpledev/react.js"></script>
-    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
-    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
-    <script type="text/babel">
+<head>
+  <title>React Basics</title>
+</head>
 
-        function Greeting(props){
-        return (
-          <h1>Helllo, {props.name}!</h1>
-        )
-      }
-      function UserCard(props){
-        const {username,age} = props;
-        return (
-      <p>Username {username} is {age} years old.</p>
-        )
-      }
+<body>
+  <div class="js-container"></div>`
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
-     const div = (
+  <script type="text/babel">
+
+    function Greeting(props) {
+      return (
+        <h1>Helllo, {props.name}!</h1>
+      )
+    }
+    function UserCard(props) {
+      const { username, age } = props;
+      return (
+        <p>Username {username} is {age} years old.</p>
+      )
+    }
+
+    function Product({ name, price }) {
+      return (
+        <p>{name} costs ${price}.</p>
+      )
+    }
+
+    function StatusBadge({isOnline}) {
+      return (
+        <>
+  If(isOnline){
+    <p>🟢 Online</p>
+  } else {
+    <p>🔴 Offline</p>
+  }
+  </>
+)
+    }
+    const div = (
       <>
-        <Greeting name="Ahmed"/>
-        <UserCard username = "Ahmed" age={20}/>
-        </>
+        <Greeting name="Ahmed" />
+        <UserCard username="Ahmed" age={20} />
+        <Product name="Laptop" price={999} />
+        <StatusBadge isOnline=  {true}/>
+        <StatusBadge isOnline=  {false}/>
+      </>
     )
-      const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(div);
-    </script>
-  </body>
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(div);
+  </script>
+</body>
+
 </html>
